@@ -205,3 +205,56 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.env
+.venv
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ML artifacts
+*.h5
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.joblib
+*.pkl
+*.pickle
+*.npz
+*.npy
+
+# Data files (important!)
+data/
+datasets/
+raw_data/
+processed_data/
+
+# Logs & outputs
+logs/
+*.log
+runs/
+outputs/
+results/
+
+# Experiment tracking
+mlruns/
+wandb/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
