@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+  <h1>{{ recipe['name'] }}</h1>
+  <div class="badges">
+    {% if recipe['calories'] is not none %}<div class="badge">{{ recipe['calories']|int }} kcal</div>{% endif %}
+    {% if recipe['minutes'] %}<div class="badge">{{ recipe['minutes'] }} min</div>{% endif %}
+    {% if recipe['n_ingredients'] %}<div class="badge">{{ recipe['n_ingredients'] }} ingredients</div>{% endif %}
+  </div>
+  <h3>Ingredients</h3>
+  <ul>
+    {% for ing in recipe['ingredients_list'] %}
+      <li>{{ ing }}</li>
+    {% endfor %}
+  </ul>
+  <h3>Steps</h3>
+  <ol>
+    {% for step in recipe['steps_list'] %}
+      <li>{{ step }}</li>
+    {% endfor %}
+  </ol>
+  <a class="cta" href="{{ url_for('index') }}">← Back</a>
+</div>
+{% endblock %}

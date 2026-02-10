@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+  <h1>Find recipes from your ingredients</h1>
+  <p class="muted">Type what you have. Example: <em>egg, onion, rice, spinach</em></p>
+  <form method="post" action="{{ url_for('search') }}">
+    <input type="text" name="query" placeholder="egg, onion, rice" value="{{ query or '' }}" required>
+    <label class="muted">
+      <input type="checkbox" name="healthy" {% if healthy %}checked{% endif %}> Prefer lower calories
+    </label>
+    <button type="submit">Get Recipes</button>
+  </form>
+</div>
+
+{% if results is not none %}
+  <div class="grid">
+    {% for r in results %}
+    <div class="card">
+      <div class="title">{{ r['name'] }}</div>
+      <div class="score">Similarity: {{ '%.2f'|format(r['score']) }}</div>
+      <div class="badges">
+        {% if r['calories'] is not none %}<div class="badge">{{ r['calories']|int }} kcal</div>{% endif %}
+        {% if r['minutes'] %}<div class="badge">{{ r['minutes'] }} min</div>{% endif %}
+        {% if r['n_ingredients'] %}<div class="badge">{{ r['n_ingredients'] }} ingredients</div>{% endif %}
+      </div>
+      <a class="cta" href="{{ url_for('recipe_detail', recipe_id=r['id']) }}">View recipe →</a>
+      <hr/>
+      <div class="feedbackRow">
+        <form method="post" action="{{ url_for('feedback') }}">
+          <input type="hidden" name="recipe_id" value="{{ r['id'] }}">
+          <input type="hidden" name="query" value="{{ query }}">
+          <input type="hidden" name="helpful" value="1">
+          <button type="submit">Helpful 👍</button>
+        </form>
+        <form method="post" action="{{ url_for('feedback') }}">
+          <input type="hidden" name="recipe_id" value="{{ r['id'] }}">
+          <input type="hidden" name="query" value="{{ query }}">
+          <input type="hidden" name="helpful" value="0">
+          <button type="submit">Not Helpful 👎</button>
+        </form>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endif %}
+{% endblock %}

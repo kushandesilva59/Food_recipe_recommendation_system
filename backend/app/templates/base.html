@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leftover AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="brand">Leftover AI</div>
+        <div class="muted">Healthy recipes from leftovers</div>
+      </div>
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

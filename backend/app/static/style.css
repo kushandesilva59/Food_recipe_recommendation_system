@@ -1,0 +1,25 @@
+
+:root { --bg:#0f1320; --card:#151933; --text:#e9ecf1; --muted:#a7b0c5; --accent:#6ee7b7; }
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#0f1320 0%,#0b0e1a 100%);color:var(--text);margin:0;padding:0}
+.container{max-width:980px;margin:0 auto;padding:32px}
+.header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.brand{font-weight:800;font-size:22px;letter-spacing:.4px}
+.card{background:var(--card);border-radius:16px;padding:20px;box-shadow:0 10px 25px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.06);}
+h1,h2,h3{margin:0 0 12px}
+h1{font-size:28px}
+h2{font-size:22px}
+.muted{color:var(--muted);font-size:14px}
+form{display:flex;gap:12px;flex-wrap:wrap}
+input[type=text]{flex:1;min-width:280px;background:#0e1224;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px 16px;color:var(--text)}
+button{background:var(--accent);color:#06151a;border:0;border-radius:12px;padding:14px 18px;font-weight:700;cursor:pointer}
+.grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px}
+@media(min-width:840px){.grid{grid-template-columns:1fr 1fr}}
+.card .title{font-weight:700;margin-bottom:6px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.badge{background:#0e1224;border:1px solid rgba(255,255,255,.08);border-radius:999px;padding:6px 10px;font-size:12px;color:var(--muted)}
+a.cta{display:inline-block;margin-top:10px;font-size:14px}
+hr{border:0;border-top:1px solid rgba(255,255,255,.08);margin:16px 0}
+.feedbackRow{display:flex;gap:10px;align-items:center;margin-top:12px}
+.feedbackRow form{gap:8px}
+.score{font-size:13px;color:var(--muted)}
